@@ -30,7 +30,7 @@
    ```
    
 ## 安装
- - CUDA
+ - 安装CUDA
     - https://developer.nvidia.com/cuda-toolkit-archive
     - （CCUDA Toolkit 10.2 Download  ->  Linux  ->  x86_64  ->  Ubuntu  ->  16.04  ->  deb（local））
    ```
@@ -49,19 +49,19 @@
    sudo apt-get -y install cuda
    ```
 
- - SDK
+ - 安装SDK
     - https://www.stereolabs.com/developers/release/
     - （CUDA 10.2 ZED SDK for Ubuntu 16 3.2.2  ->  ZED_SDK_Ubuntu16_cuda10.2_v3.2.2.run）
     - 使用时下载最新版本
 
  - 编译
    ```
-   $ cd ~/stereo_ws/src
-   $ git clone https://github.com/stereolabs/zed-ros-wrapper.git
-   $ cd ..
-   $ rosdep install --from-paths src --ignore-src -r -y
-   $ catkin_make -DCMAKE_BUILD_TYPE=Release
-   $ source ./devel/setup.bash
+   cd ~/stereo_ws/src
+   git clone https://github.com/stereolabs/zed-ros-wrapper.git
+   cd ..
+   rosdep install --from-paths src --ignore-src -r -y
+   catkin_make -DCMAKE_BUILD_TYPE=Release
+   source ./devel/setup.bash
    ```
 
 
