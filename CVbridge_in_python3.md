@@ -72,7 +72,7 @@
 
 ## 解决python3与ROS兼容性问题
  - 在要执行的脚本.py第一行添加 #!env /usr/bin/python3
- - 安装依赖：
+ - 安装依赖
    ```
    python3 -m pip install catkin-tools
    python3 -m pip install rospkg
