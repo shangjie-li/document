@@ -119,6 +119,4 @@
    deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe
    deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe
    ```
- - 保存退出
-
 
