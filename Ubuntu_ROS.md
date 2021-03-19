@@ -45,7 +45,7 @@
    ```
  - 测试（roscore节点管理器）。一旦启动roscore后，便可以运行ROS程序了。
  - 如果需要的话，可通过sudo gedit ~/.bashrc修改.bashrc中的内容。
- - 安装libpcap-dev：
+ - 安装libpcap-dev
    ```
    sudo apt-get install libpcap-dev
    ```
