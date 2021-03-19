@@ -77,13 +77,3 @@
    python3 -m pip install catkin-tools
    python3 -m pip install rospkg
    ```
-
-## 运行
-   ```
-   roslaunch kinect2_bridge kinect2_bridge.launch depth_method:=opengl reg_method:=cpu
-   
-   cd ~/catkin_workspace  && source install/setup.bash --extend
-   python3 run_realtime.py --realtime true
-   
-   rosrun image_view image_view image:=/detect_result
-   ```
