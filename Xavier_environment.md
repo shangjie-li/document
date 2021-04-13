@@ -52,7 +52,7 @@
     - https://github.com/pytorch/vision
  - Install
    ```
-   # Install PyTorch v1.3.0 & torchvision v0.5.0 in Xavier (JetPack 4.3)
+   # Install PyTorch v1.3.0 & torchvision v0.4.1 in Xavier (JetPack 4.3)
    # Create dir
    mkdir -p ~/PyTorch
    cd ~/PyTorch
@@ -93,7 +93,7 @@
    cd ~/PyTorch
    git clone https://github.com/pytorch/vision
    cd vision
-   git checkout v0.5.0
+   git checkout v0.4.1
    sudo python3 setup.py install
    ```
  
