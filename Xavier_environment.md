@@ -82,7 +82,7 @@
     - torchvision web: https://github.com/pytorch/vision
  - Install
    ```
-   # Download Pytorch package according to Jetson info, for example, JetPack 4.4 -> Pytorch v1.6.0 -> torchvision 0.7.0
+   # Download Pytorch package according to Jetson info, for example, JetPack 4.4 -> Pytorch v1.6.0 -> torchvision v0.7.0
    
    sudo apt-get install libopenblas-base libopenmpi-dev
    sudo apt-get install python3-pip
