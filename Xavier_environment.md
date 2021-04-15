@@ -44,7 +44,7 @@
    ```
    # In another pc, download installation packages using 'NVIDIA SDK Manager'
    
-   # Visit https://developer.nvidia.com and sign in
+   # Visit [https://developer.nvidia.com] and sign in
    # Click 'JetPack'(in Popular SDKs) -> 'FOR ANY JETSON DEVELOPER KIT'(in Installing JetPack) -> 'Download NVIDIA SDK Manager' and get more information by following 'Install Jetson Software with SDK Manager'
    
    # install SDK Manager
@@ -52,12 +52,12 @@
    sdkmanager
    
    # Download packages that Xavier needs
-   #   In STEP 01: Jetson -> Host Machine -> Target Hardware Jetson AGX Xavier -> Linux JetPack 4.4 -> CONTINUE
-   #   In STEP 02: I accept ... -> Download now. Install later -> CONTINUE
+   #   In STEP 01: Jetson -> Host Machine -> Target Hardware Jetson AGX Xavier modules -> Linux JetPack 4.4 -> CONTINUE
+   #   In STEP 02: I accept ... -> Download now. Install later. -> CONTINUE
    #   In STEP 03: Download packages
    #   In STEP 04: Finish
    
-   # Next, copy three packages from downloading dir into Xavier, these packages are:
+   # Next, copy three packages from download folder into Xavier, these packages are:
    # 'cuda-repo-l4t-10-2-local-10.2.89_1.0-1_arm64.deb'
    # 'libcudnn8_8.0.0.180-1+cuda10.2_arm64.deb'
    # 'libcudnn8-dev_8.0.0.180-1+cuda10.2_arm64.deb'
