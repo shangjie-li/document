@@ -44,7 +44,7 @@
    ```
    # In another pc, download installation packages using 'NVIDIA SDK Manager'
    
-   # Visit [https://developer.nvidia.com] and sign in
+   # Visit (https://developer.nvidia.com) and sign in
    # Click 'JetPack'(in Popular SDKs) -> 'FOR ANY JETSON DEVELOPER KIT'(in Installing JetPack) -> 'Download NVIDIA SDK Manager' and get more information by following 'Install Jetson Software with SDK Manager'
    
    # install SDK Manager
