@@ -49,7 +49,7 @@
    sudo ./NVIDIA-Linux-x86_64-440.100.run -no-x-check -no-nouveau-check -no-opengl-files
    # 在弹出的提示窗口中均保持默认选择
    
-   # 重启图形界面
+   # 8.重启图形界面
    sudo service lightdm start
    ```
  - 验证安装成功
@@ -62,12 +62,11 @@
     - 已安装显卡驱动
  - 下载驱动
     - https://developer.nvidia.com/cuda-toolkit-archive
-    - （CUDA Toolkit 10.0 Archive  ->  Linux  ->  x86_64  ->  Ubuntu  ->  16.04  ->  runfile（local））
-    - 下载cuda_10.0.130_410.48_linux.run文件，大小为2.0GB
+    - 下载cuda_10.0.130_410.48_linux.run文件[CUDA Toolkit 10.0 Archive -> Linux -> x86_64 -> Ubuntu -> 16.04 -> runfile(local)]，大小为2.0GB
    ```
    sudo sh cuda_10.0.130_410.48_linux.run
    ```
- - 如果/tmp显示空间不足，则执行
+ - 如果`/tmp`显示空间不足，则执行
    ```
    sudo mkdir /opt/tmp
    sudo sh cuda_10.0.130_410.48_linux.run --tmpdir=/opt/tmp/
@@ -124,8 +123,7 @@
     - 已安装cuda
  - 下载驱动（首次登录需注册并填问卷）
     - https://developer.nvidia.com/rdp/cudnn-archive
-    - （Download cuDNN v7.6.5 (November 5th, 2019), for CUDA 10.0  ->  cuDNN Library for Linux）
-    - 下载cudnn-10.0-linux-x64-v7.6.5.32.tgz压缩包，大小为486MB
+    - 下载cudnn-10.0-linux-x64-v7.6.5.32.tgz压缩包[Download cuDNN v7.6.5 (November 5th, 2019), for CUDA 10.0 -> cuDNN Library for Linux]，大小为486MB
  - 解压后生成cuda文件夹
    ```
    sudo cp cuda/include/cudnn.h /usr/local/cuda/include
@@ -134,8 +132,7 @@
    ```
  - 下载libcudnn（可能不需要）
     - https://developer.nvidia.com/rdp/cudnn-archive
-    - （Download cuDNN v7.6.5 (November 5th, 2019), for CUDA 10.0  ->  cuDNN Runtime Library for Ubuntu16.04 (Deb) & cuDNN Developer Library for Ubuntu16.04 (Deb)）
-    - 下载libcudnn7_7.6.5.32-1+cuda10.0_amd64.deb和libcudnn7-dev_7.6.5.32-1+cuda10.0_amd64.deb
+    - 下载libcudnn7_7.6.5.32-1+cuda10.0_amd64.deb和libcudnn7-dev_7.6.5.32-1+cuda10.0_amd64.deb[Download cuDNN v7.6.5 (November 5th, 2019), for CUDA 10.0 -> cuDNN Runtime Library for Ubuntu16.04 (Deb) & cuDNN Developer Library for Ubuntu16.04 (Deb)]
    ```
    sudo dpkg -i libcudnn7_7.6.5.32-1+cuda10.0_amd64.deb
    sudo dpkg -i libcudnn7-dev_7.6.5.32-1+cuda10.0_amd64.deb
@@ -149,14 +146,12 @@
    ```
 
 ## 切换网络源
- - 打开软件和更新，设置选择阿里的服务器
-    - http://mirrors.aliyun.com/ubuntu
-    - 这时候点击关闭，重新载入时会报错，这是因为sources.list里面对阿里这个源配置的这个artful属性不对。
+ - 设置软件和更新
+    - 在软件和更新中，选择阿里的服务器（http://mirrors.aliyun.com/ubuntu）
+ - 若重新载入时出错，修改`/etc/apt/sources.list`
+
    ```
-   sudo gedit /etc/apt/sources.list
-   ```
- - 删除文档内容，并添加
-   ```
+   # 删除文档原内容，并添加
    deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe 
    deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe
    deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe
