@@ -1,33 +1,78 @@
-# cuda_cudnn
+# NVIDIA Driver + CUDA 10.0 (Ubuntu 16.04)
 
-注：本文档主要描述Ubuntu16.04中安装cuda10.0及cudnn7.6.5的过程
+注：本文档主要描述Ubuntu 16.04中安装NVIDIA Driver和cuda的过程
 
- - 查看cuda版本（CUDA Version 10.0.130）
+ - 查看显卡驱动
+   ```
+   nvidia-smi
+   ```
+ - 查看cuda版本
    ```
    cat /usr/local/cuda/version.txt
    nvcc -V
    ```
- - 查看cudnn版本（CUDNN_VERSION 7.6.5）
+ - 查看cudnn版本
    ```
    cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
    ```
    
-## 安装cuda10.0
+## 安装NVIDIA Driver
+ - 下载驱动
+    - https://www.nvidia.cn/geforce/drivers
+    - 下载NVIDIA-Linux-x86_64-440.100.run文件，大小为144MB
+ - 安装
+   ```
+   # 1.禁用nouveau
+   sudo gedit /etc/modprobe.d/blacklist.conf
+   # 打开文件，在最后添加如下两行
+   blacklist nouveau
+   options nouveau modeset=0
+   
+   # 2.更新系统修改
+   sudo update-initramfs -u
+   # 重启电脑
+   
+   # 3.验证nouveau已禁用
+   lsmod | grep nouveau
+   # 无输出则表示已禁用
+   
+   # 4.按ctrl+alt+f1进入命令行界面，此时需要login（电脑账户名称），password（密码）
+   
+   # 5.关闭图形界面
+   sudo service lightdm stop
+   
+   # 6.卸载系统中存在的驱动
+   sudo apt-get remove nvidia-*
+   
+   # 7.运行.run文件
+   sudo chmod  a+x NVIDIA-Linux-x86_64-440.100.run
+   sudo ./NVIDIA-Linux-x86_64-440.100.run -no-x-check -no-nouveau-check -no-opengl-files
+   # 在弹出的提示窗口中均保持默认选择
+   
+   # 重启图形界面
+   sudo service lightdm start
+   ```
+ - 验证安装成功
+   ```
+   nvidia-smi
+   ```
+
+## 安装cuda 10.0
  - 安装前提
-    - 已安装NVIDIA显卡驱动
- - cuda驱动下载
+    - 已安装显卡驱动
+ - 下载驱动
     - https://developer.nvidia.com/cuda-toolkit-archive
     - （CUDA Toolkit 10.0 Archive  ->  Linux  ->  x86_64  ->  Ubuntu  ->  16.04  ->  runfile（local））
     - 下载cuda_10.0.130_410.48_linux.run文件，大小为2.0GB
    ```
-   sudo sh cuda_8.0.44_linux.run
+   sudo sh cuda_10.0.130_410.48_linux.run
    ```
  - 如果/tmp显示空间不足，则执行
    ```
    sudo mkdir /opt/tmp
-   sudo sh cuda_8.0.44_linux.run --tmpdir=/opt/tmp/
+   sudo sh cuda_10.0.130_410.48_linux.run --tmpdir=/opt/tmp/
    ```
- - 安装过程
+ - 安装
    ```
    # Do you accept the previously read EULA?
    # accept/decline/quit: accept
@@ -48,7 +93,7 @@
    # (y)es/(n)o/(q)uit: y
  
    # Enter CUDA Samples Location
-   # [ default is /home/zhou ]:
+   # [ default is /home/lishangjie ]:
    ```
  - 安装结束后
    ```
@@ -72,13 +117,13 @@
    ```
  - 查看cuda版本（CUDA Version 10.0.130）
    ```
-   cat /usr/local/cuda/version.txt
+   cat /usr/local/cuda-10.0/version.txt
    ```
    
-## 安装cudnn7.6.5
+## 安装cudnn 7.6.5
  - 安装前提
     - 已安装cuda
- - cudnn驱动下载（首次登录需注册并填问卷）
+ - 下载驱动（首次登录需注册并填问卷）
     - https://developer.nvidia.com/rdp/cudnn-archive
     - （Download cuDNN v7.6.5 (November 5th, 2019), for CUDA 10.0  ->  cuDNN Library for Linux）
     - 下载cudnn-10.0-linux-x64-v7.6.5.32.tgz压缩包，大小为486MB

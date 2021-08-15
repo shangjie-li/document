@@ -1,8 +1,8 @@
-# Ubuntu_ROS
+# Ubuntu 16.04 + ROS
 
-注：本文档主要描述Win10中安装Ubuntu16.04及ROS的过程
+注：本文档主要描述Windows 10中安装Ubuntu 16.04双系统及ROS的过程
 
-## 安装Ubuntu16.04
+## 安装Ubuntu 16.04
  - 参考
     - https://www.cnblogs.com/Duane/p/5424218.html
     - https://blog.csdn.net/weixin_40787712/article/details/89944144
@@ -49,41 +49,9 @@
    ```
    sudo apt-get install libpcap-dev
    ```
-   
-## 安装Velodyne驱动与运行
- - 安装驱动
-   ```
-   sudo apt-get install ros-kinetic-velodyne
-   ```
- - 创建工作空间
-   ```
-   mkdir -p ~/velodyne_ws/src
-   cd velodyne_ws/src/
-   git clone https://github.com/ros-drivers/velodyne.git
-   ```
- - 编译
-   ```
-   cd ..
-   rosdep install --from-paths src --ignore-src --rosdistro kinetic -y
-   catkin_make
-   ```
- - 运行节点
-   ```
-   source devel/setup.bash
-   roslaunch velodyne_pointcloud VLP16_points.launch
-   ```
- - 查看结果
-   ```
-   rviz
-   ```
- - rviz设置
-   ```
-   frame：velodyne
-   PointCloud2的topic：/velodyne_points
-   ```
 
 ## 其他
- - 安装python3
+ - python
    ```
    # 检查已安装的python版本
    python --version
@@ -94,7 +62,7 @@
    sudo apt-get install python3.5
    ```
 
- - 安装pip
+ - pip
    ```
    # 检查已安装的pip版本：
    pip --version
