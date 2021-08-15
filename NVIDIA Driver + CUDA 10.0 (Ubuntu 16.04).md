@@ -95,18 +95,10 @@
    # Enter CUDA Samples Location
    # [ default is /home/lishangjie ]:
    ```
- - 安装结束后
-   ```
-   sudo gedit ~/.bashrc
-   ```
- - 在文本最后添加
+ - 安装结束后，在`~/.bashrc`最后添加
    ```
    export PATH=/usr/local/cuda-10.0/bin:$PATH
    export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-   ```
- - 保存退出
-   ```
-   source ~/.bashrc
    ```
  - 验证安装成功
    ```
@@ -119,6 +111,13 @@
    ```
    cat /usr/local/cuda-10.0/version.txt
    ```
+ - 多版本cuda切换
+   ```
+   # 删除之前的cuda软链接，并根据版本需要重新创建
+   sudo rm -rf /usr/local/cuda
+   sudo ln -s /usr/local/cuda-10.0 /usr/local/cuda
+   # 在~/.bashrc中使用cuda软链接（无需指明版本号）
+   ```
    
 ## 安装cudnn 7.6.5
  - 安装前提
@@ -127,13 +126,13 @@
     - https://developer.nvidia.com/rdp/cudnn-archive
     - （Download cuDNN v7.6.5 (November 5th, 2019), for CUDA 10.0  ->  cuDNN Library for Linux）
     - 下载cudnn-10.0-linux-x64-v7.6.5.32.tgz压缩包，大小为486MB
- - 解压后在/home下生成cuda文件夹
+ - 解压后生成cuda文件夹
    ```
    sudo cp cuda/include/cudnn.h /usr/local/cuda/include
    sudo cp cuda/lib64/*.* /usr/local/cuda/lib64
    sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
    ```
- - libcudnn下载（可能不需要）
+ - 下载libcudnn（可能不需要）
     - https://developer.nvidia.com/rdp/cudnn-archive
     - （Download cuDNN v7.6.5 (November 5th, 2019), for CUDA 10.0  ->  cuDNN Runtime Library for Ubuntu16.04 (Deb) & cuDNN Developer Library for Ubuntu16.04 (Deb)）
     - 下载libcudnn7_7.6.5.32-1+cuda10.0_amd64.deb和libcudnn7-dev_7.6.5.32-1+cuda10.0_amd64.deb
