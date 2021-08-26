@@ -39,20 +39,15 @@
    sudo c_rehash /etc/ssl/certs
    sudo -E rosdep init
    sudo rosdep init
-   rosdep update
+   rosdep update # if it doesn't work, just ignore it
    
    # 6
    echo ''source /opt/ros/kinetic/setup.bash'' >> ~/.bashrc
    source ~/.bashrc
-   
-   # 7
-   sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool buid-essential
-   sudo apt-get update
-   sudo apt-get install
    ```
  - 测试（roscore节点管理器）。一旦启动roscore后，便可以运行ROS程序了。
  - 如果需要的话，可通过sudo gedit ~/.bashrc修改.bashrc中的内容。
- - 安装libpcap-dev
+ - 安装数据包捕获函数库libpcap-dev
    ```
    sudo apt-get install libpcap-dev
    ```
